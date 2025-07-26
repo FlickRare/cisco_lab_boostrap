@@ -1,6 +1,6 @@
 # Cisco Lab Bootstrap
 
-Quickly generate initial configurations for Cisco devices in virtual lab environments.
+Quickly generate initial configurations with jinja to enable Cisco IOS SSH access in virtual lab environments.
 
 ## File Structure
 
