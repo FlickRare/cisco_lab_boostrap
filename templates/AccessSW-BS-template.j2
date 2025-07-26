@@ -6,24 +6,24 @@ line console 0
  logging sync
  exit
 hostname {{ hostname }}
-ip domain-name ccnp-p2.com
+ip domain-name {{ ip_domain_name }}
 crypto key generate rsa general-keys modulus 4096
 ip ssh version 2
-username admin password Cisco123!
+username {{ username }} password {{ password }}
 line vty 0 4
  transport input ssh
  login local
  exit
-interface range g2/0-1
+interface range {{ trunk_port_range }}
  switchport trunk encapsulation dot1q
  switchport mode trunk
  no shutdown
  exit
-vlan 42
+vlan {{ mgmt_vlan }}
  name MANAGEMENT
  exit
-interface vlan 42
- ip address {{ ip_address }} 255.255.255.0
+interface vlan {{ mgmt_vlan }}
+ ip address {{ ip_address }} {{ subnet_mask }}
  no shut
  end
 wr
