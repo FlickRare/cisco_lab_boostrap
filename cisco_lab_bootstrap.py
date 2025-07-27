@@ -6,7 +6,7 @@ common = {
     "password": "Cisco123!",
     "ip_domain_name": "example.com",
     "mgmt_vlan": "42",
-    "trunk_port_range": "g0/0-3,g1/0-1",
+    "trunk_port_range": "g0/0-3,g1/0-1,g2/0-1",
     "subnet_mask": "255.255.255.0"
 }
 
@@ -25,7 +25,7 @@ hosts = [
 
 # Loads up jinja2 with the config template in /templates
 environment = Environment(loader=FileSystemLoader("templates/"))
-template = environment.get_template("AccessSW-BS-template.j2")
+template = environment.get_template("SSH-template.j2")
 
 # Iterate through every host specified above to create a file path, apply it's unique parameters (hostname and ip) along with the common parameters.
 for host in hosts:
